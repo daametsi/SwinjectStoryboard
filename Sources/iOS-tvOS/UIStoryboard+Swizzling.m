@@ -19,7 +19,7 @@
 @implementation UIStoryboard (Swizzling)
 
 __attribute__((constructor)) static void uiStoryboardSwizzlingEntry(void) {
-    Class class = object_getClass((id)self);
+    Class class = objc_getClass("UIStoryboard");
 
     SEL originalSelector = @selector(storyboardWithName:bundle:);
     SEL swizzledSelector = @selector(swinject_storyboardWithName:bundle:);
